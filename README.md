@@ -14,8 +14,8 @@
     - 💬 Ask me about **Python😆**
 
     - ⚡ Fun fact **Coding is a passion and not profession.**
-
 </div>
+
 ---
 
 <h3 align="center"> Technologies (Programming languages, Libraries, Version controls, DBMS) </h3>
