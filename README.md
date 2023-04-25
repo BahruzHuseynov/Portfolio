@@ -14,7 +14,7 @@
 
 - ⚡ Fun fact **Coding is a passion and not profession.**
 
-<br> <br> <br>
+<br>
 
 ---
 
