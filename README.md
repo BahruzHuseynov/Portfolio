@@ -1,5 +1,7 @@
 <h1 align="center"><b>Hi , I'm Bahruz Huseynov </b><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35"></h1>
 
+---
+
 <h3 font-size="20" align="center">A passionate backend developer and a student from India.</h3>
 
 
