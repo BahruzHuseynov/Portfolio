@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+  <main>
+    <!------------------------------------ Start Step-one section --------------------------------------->
+    <section class="steps step-two pt-200 pb-100">
+        <div class="heading-steps">
+            <h1 class="title">{{ stage.stage_name }}</h1>
+        </div>
+        <div class="container">
+            <div class="form-wrapper">
+                <div class="steps-form-wrapper">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {% for question in questions %}
+                        <div class="input-description-wrapper">
+                        <input type="hidden" value="{{ question.id }}" name="question-{{ question.order_by }}" id="question-id">
+                            <input type="number" class="input" name="answer-{{ question.order_by }}" id="answer-id">
+                            <div class="description">
+                                <h2>
+                                    {{ question.question_title }}
+                                </h2>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <button type="submit" class="steps-btn btn--secondary">Next</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

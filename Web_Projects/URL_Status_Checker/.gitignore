@@ -1,0 +1,14 @@
+pgdb/
+redisdb/
+.idea/
+media/
+localhost/
+locale/
+venv
+.venv
+db.sqlite3
+**/__pycache__/
+*.pyc
+**/.DS_Store
+celerybeat-schedule
+celerybeat-schedule.db

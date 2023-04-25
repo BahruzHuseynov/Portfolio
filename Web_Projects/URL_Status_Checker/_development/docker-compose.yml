@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+    postgres:
+        container_name: postgres
+        image: postgres
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_DB: name_url_status_checker_db
+            POSTGRES_USER: user_url_status_checker_db
+            POSTGRES_PASSWORD: f4mXiEVasjk!asS%%NNN6R@K%S?!fODtJ&TD1k2!0:*pFu!UpTm@3p
+        volumes:
+            - ../pgdb:/var/lib/postgresql/data

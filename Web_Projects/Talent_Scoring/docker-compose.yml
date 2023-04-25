@@ -1,0 +1,93 @@
+version: '3'
+
+services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./nginx/vhost/:/etc/nginx/vhost.d:ro
+      - ./nginx/conf.d/client_max_body_size.conf:/etc/nginx/conf.d/client_max_body_size.conf:ro
+      - ./static/:/talent_scoring_backend/static
+      - ./media/:/talent_scoring_backend/media
+
+  postgres:
+    container_name:  postgres-db
+    image:           postgres:14
+    restart: "always"
+    ports:
+      - '5432:5432' # Bind host port 5432 to PostgreSQL port 5432
+    volumes:
+      - ./pgdb:/var/lib/postgresql/data
+    env_file: .env
+    environment:
+      - LC_ALL=C.UTF-8
+
+
+
+  redis:
+    image: redis:5
+    restart: "always"
+    container_name: redis
+    command: redis-server --requirepass $REDIS_PASSWORD
+    ports:
+      - 6379:6379
+    volumes:
+      - ./redisdb:/var/lib/redis
+    env_file: .env
+
+
+
+#  celery: &celery
+#    restart: "always"
+#    build:
+#      context: .
+#      dockerfile: celery.dockerfile
+#    container_name: celery
+#    env_file: .env
+#    command: celery --app=azkommunal_backend.celery:app worker -B --loglevel=INFO
+#    volumes:
+#      - .:/code
+#      - ./django_logs:/code/django_logs
+#    links:
+#      - redis
+#      - postgres
+#    depends_on:
+#      - "redis"
+#      - "postgres"
+#
+#  celery-exporters:
+#    <<: *celery
+#    container_name: celery-exporters
+#    command: ["celery", "--app=azkommunal_backend.celery:app", "worker", "-Q", "exporters", "-l", "DEBUG"]
+
+
+  web:
+    container_name: talentscore.az
+    build: .
+    restart: "always"
+    env_file: .env
+    environment:
+      - VIRTUAL_HOST=165.22.27.114
+      - VIRTUAL_PORT=8000
+      - TIMEOUT=300
+      - HTTP_PORT=8000
+      - STATS_PORT=8001
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/code
+    links:
+      - postgres
+    depends_on:
+      - "postgres"
+
+
+networks:
+  default:
+    external:
+      name: nginx-proxy

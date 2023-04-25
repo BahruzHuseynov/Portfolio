@@ -1,0 +1,15 @@
+asgiref==3.5.0
+Django==3.2.13
+pip==22.0.4
+setuptools==60.10.0
+sqlparse==0.4.2
+wheel==0.37.1
+python-dotenv==0.19.2
+psycopg2-binary==2.8.6
+django-widget-tweaks==1.4.12
+markdown==3.3.6
+django-filter==21.1
+six==1.16.0
+asyncio==3.4.3
+grequests==0.6.0
+uvicorn==0.17.6

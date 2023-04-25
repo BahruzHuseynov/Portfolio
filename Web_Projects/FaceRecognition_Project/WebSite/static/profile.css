@@ -1,0 +1,12 @@
+.profile-management{
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-picture{
+    width: 55%;
+}
+
+.profile-info{
+    width: 40%;
+}

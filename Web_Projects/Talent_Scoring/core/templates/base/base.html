@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="BrandyBox">
+        <meta name="description" content="Talent- Score">
+        <meta name="keywords" content="Talent - TalentScore">
+        <meta name="robots" content="INDEX,FOLLOW">
+        <!-- Favicon -->
+        <!-- Bootstrap link -->
+        <link rel="stylesheet" href="{% static 'client/lib/bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css' %}">
+        <!-- Fontawsome link -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+            integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        >
+        <link rel="stylesheet" href="{% static 'client/css/main.min.css' %}">
+        <title>Talent Score</title>
+    </head>
+    <body class="body">
+        <div class="overlay_leftsidebar"></div>
+        <!-------------------------------------------- Header-section ---------------------------------------------->
+        <header class="header" id="header">
+            <div class="navbar-desktop">
+                <div class="container">
+                    <div class="row">
+                        <div class="{% if request.user.is_authenticated %} col-lg-3 col-md-3 {% else %} col-lg-2 col-md-2 {% endif %}">
+                            <div class="logo">
+                                <a href="{% url 'core:index' %}">
+                                    <img src="{% static 'client/assets/images/logo 1.svg' %}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="{% if request.user.is_authenticated %} col-lg-7 col-md-7 {% else %} col-lg-6 col-md-5 {% endif %}">
+                            <ul class="nav-list">
+                                <li class="list">
+                                    <a class="nav-link" href="{% url 'core:index' %}">Home</a>
+                                </li>
+                                <li class="list">
+                                    <a class="nav-link" href="{% url 'core:about_page' %}">About Product</a>
+                                </li>
+                                <li class="list">
+                                    <a class="nav-link" href="{% url 'core:contact_page' %}">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="{% if request.user.is_authenticated %} col-lg-2 col-md-2 {% else %} col-lg-4 col-md-5 {% endif %}">
+                            <div class="nav-right cabinet-btns">
+                                <div class="nav-btns">
+                                   {% if request.user.is_authenticated %}
+                                       <ul class="right-lists">
+                                        <li class="lang-list">
+                                            <div class="dropdown">
+                                                <a
+                                                    class="btn btn-secondary dropdown-toggle btn-cabinet"
+                                                    href="{% url 'core:index' %}"
+                                                    role="button"
+                                                    id="dropdownMenuLink"
+                                                    data-bs-toggle="dropdown"
+                                                    aria-expanded="false"
+                                                >
+                                                    <span>{{ request.user.fullname }}</span>
+                                                    <i class="fa-solid fa-chevron-down chevron-cabinet"></i>
+                                                </a>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                    <li>
+                                                        <a class="dropdown-item" href="{% url 'account:logout' %}">Logout</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                       {% else %}
+                                     <a class="sign-in" href="{% url 'account:login' %}">Sign in</a>
+                                    <a class="sign-up btn--primary" href="{% url 'account:register' %}">Sign up</a>
+                                    {% endif %}
+                                </div>
+                                <ul class="right-lists d-none">
+                                    <li class="lang-list">
+                                        <div class="dropdown">
+                                            <a
+                                                class="btn btn-secondary dropdown-toggle"
+                                                href="#"
+                                                role="button"
+                                                id="dropdownMenuLink"
+                                                data-bs-toggle="dropdown"
+                                                aria-expanded="false"
+                                            >
+                                                <span>Az</span>
+                                                <i class="fa-solid fa-chevron-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <li>
+                                                    <a class="dropdown-item" href="#">En</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="#">Ru</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!---------------------------------------------- Mobile nav menu  ------------------------------------->
+            <div class="navbar-mobile ">
+                <div class="container">
+                    <div class="mobile-nav-wrapper">
+                        <div class="menu-bar">
+                            <i class="fa-solid fa-bars"></i>
+                        </div>
+                        <div class="logo">
+                            <a href="#"><img src="{% static 'client/assets/images/logo 1.svg' %}" alt=""></a>
+
+                        </div>
+                        <ul class="right-lists">
+                            <li class="lang-list d-none">
+                                <div class="dropdown">
+                                    <a
+                                        class="btn btn-secondary dropdown-toggle"
+                                        href="#"
+                                        role="button"
+                                        id="dropdownMenuLink"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                    >
+                                        <span>Az</span>
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li>
+                                            <a class="dropdown-item" href="#">En</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Ru</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="navlist-mobile">
+                        <ul class="nav-list">
+                            <li class="list">
+                                <a class="nav-link" href="{% url 'core:index' %}">Home</a>
+                            </li>
+                            <li class="list">
+                                <a class="nav-link" href="{% url 'core:about_page' %}">About Product</a>
+                            </li>
+                            <li class="list">
+                                <a class="nav-link" href="{% url 'core:contact_page' %}">Contact</a>
+                            </li>
+                        </ul>
+                            <div class="nav-btns">
+                                {% if request.user.is_authenticated %}
+                                <ul class="right-lists">
+                                <li class="lang-list">
+                                    <div class="dropdown">
+                                        <a
+                                            class="btn btn-secondary dropdown-toggle btn-cabinet"
+                                            href="{% url 'core:index' %}"
+                                            role="button"
+                                            id="dropdownMenuLink"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false"
+                                        >
+                                            <span>{{ request.user.fullname }}</span>
+                                            <i class="fa-solid fa-chevron-down chevron-cabinet"></i>
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <li>
+                                                <a class="dropdown-item" href="{% url 'account:logout' %}">Logout</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                            {% else %}
+                                <a class="sign-in" href="{% url 'account:login' %}">Sign in</a>
+                                <a class="sign-up btn--primary" href="{% url 'account:register' %}">Sign up</a>
+                            {% endif %}
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+        </header>
+
+    {% block content %}{% endblock %}
+
+     <footer class="mt-170">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3  col-12">
+                            <div class="logo">
+                                 <a href="{% url 'core:index' %}">
+                                    <img src="{% static 'client/assets/images/logo 1.svg' %}" alt="">
+                                 </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-7  col-12">
+                            <div class="links-wrapper">
+                                <div class="links">
+                                    <h2 class="title">Company</h2>
+                                    <ul class="lists">
+                                        <li class="list">
+                                            <i class="fa-solid fa-angle-right"></i>
+                                            <a class="link" href="{% url 'core:about_page' %}">About product</a>
+                                        </li>
+                                        <li class="list">
+                                            <i class="fa-solid fa-angle-right"></i>
+                                            <a class="link" href="{% url 'core:contact_page' %}">Contact</a>
+                                        </li>
+                                        {% if request.user.is_authenticated %}
+                                            {% else %}
+                                        <li class="list">
+                                            <i class="fa-solid fa-angle-right"></i>
+                                            <a class="link" href="{% url 'account:login' %}">Login</a>
+                                        </li>
+                                        <li class="list">
+                                            <i class="fa-solid fa-angle-right"></i>
+                                            <a class="link" href="{% url 'account:register' %}">Register</a>
+                                        </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                                <div class="links">
+                                    <h2 class="title">Usefull links</h2>
+                                    <ul class="lists">
+                                        <li class="list">
+                                            <a class="link" href="#">Privacy Policy</a>
+                                        </li>
+                                        <li class="list">
+                                            <a class="link" href="#">Terms of Condition</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2  col-12">
+                            <ul class="social-icons">
+                                <li class="social-list">
+                                    <a class="social-link" href="">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li class="social-list">
+                                    <a class="social-link" href="">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </a>
+                                </li>
+                                <li class="social-list">
+                                    <a class="social-link" href="">
+                                        <i class="fa-brands fa-linkedin-in"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <p>Talent Score MMC</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="{% static 'client/lib/jquery/jquery-3.6.0.min.js' %}"></script>
+        <script src="{% static 'client/lib/bootstrap-5.2.0-beta1-dist/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'client/js/script.js' %}"></script>
+    </body>
+</html>
+
+</body>
+</html>

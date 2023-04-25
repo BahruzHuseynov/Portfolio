@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block head-title %}
+    <title>Registration</title>
+{% endblock head-title %}
+
+{% block content %}
+<div class="container">
+    <form action="{% url 'myapp:register_snapshot' %}" method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4 text-center">Register with automatic snapshot</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group text-center">
+            <button class="btn btn-outline-info" type="submit">Sign Up</button>
+            <a href="{% url 'myapp:register' %}" class="btn btn-outline-warning"> Register by Uploading Image </a>
+        </div>
+    </form>
+</div>
+{% endblock content %}

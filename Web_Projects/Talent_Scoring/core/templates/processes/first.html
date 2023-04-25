@@ -1,0 +1,49 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+<main>
+    <!------------------------------------ Start Step-one section --------------------------------------->
+    <section class="contact steps pt-200 pb-100">
+        <div class="heading-steps">
+            <h1 class="title">{{ stage.stage_name }}</h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12-lg-12">
+                    <div class="form-wrapper">
+                        <div class="steps-form-wrapper">
+                            <form action="{% url 'core:stage_one_page' %}" method="POST">
+                            {% csrf_token %}
+
+                            {% for question in questions %}
+
+                                <label for="">{{ question.question_title }}</label>
+
+                                {% if question.question_title == "Ad ve Soyadinizi daxil edin" %}
+                                <input type="text" name="fullname" disabled class="input disabled-input" value="{{ request.user.fullname }}" required>
+
+
+                                {% elif  question.question_title == "Yaşınızi qeyd edin." %}
+                                <input type="text" name="age" class="input" required>
+
+                                {% else %}
+                                <select id="data_{{ question.id }}" class="steps-input" name="question-{{ question.order_by }}" required="required">
+                                    {% for answer in question.question.all %}
+                                      <option value="{{ answer.id }}">{{ answer.answer_title }}</option>
+                                    {% endfor %}
+                                </select>
+                                {% endif %}
+                                {% endfor %}
+                                <button type="submit" class="steps-btn btn--secondary">Next</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

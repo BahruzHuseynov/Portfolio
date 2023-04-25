@@ -1,0 +1,9 @@
+pip install django
+pip install opencv-python
+pip install cmake
+pip install "D:\FaceRecognition\dlib-19.22.99-cp39-cp39-win_amd64.whl"
+pip3 install face_recognition
+pip install django-crispy-forms
+
+dlib installation github page:
+https://github.com/datamagic2020/Install-dlib

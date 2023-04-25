@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+         <main>
+            <!------------------------------------ Start Step-one section --------------------------------------->
+            <section class="steps step-four fail pb-100">
+                <div class="container">
+                    <div class="form-wrapper">
+                        <h1 class="text-area fail-text">
+                            Hörmətli
+                            <span class="name">{{ request.user.fullname }}</span>
+
+                            ,
+                            Sorğuda iştirak etdiyiniz üçün təşəkkür edirik.
+Təhsil və karyera həyatınızda müqayisə edilə biləcək müvəffəqiyyət göstəricisi tapılmadı. Uğura gedən yolda hər kəsin müvəffəqiyyətsizlik pilləsi keçdiyini unutmayın. Səbr və çalışqanlıq daima müvəffəqiyyətlə nəticələnir.
+Sizə uğurlar arzu edirik.
+                        </h1>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+
+{% endblock %}

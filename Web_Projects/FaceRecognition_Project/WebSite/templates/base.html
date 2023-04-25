@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head-title %}
+        <title>Base</title>
+    {% endblock %}
+    <script src="https://kit.fontawesome.com/da84f93c8e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'attendance.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'profile.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'footer.css' %}">
+</head>
+<body>
+    <div class="entire">
+        <nav id="navbar">
+            <i></i>
+            <ul>
+                <a href="{% url 'myapp:home' %}"><li><i class="fas fa-home"></i><p>Home</p></li></a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'myapp:profile' user.id %}"><li><i class="fa-solid fa-user"></i><p>Profile</p></li></a>
+                    <a href="{% url 'myapp:log_out'%}"><li><i class="fa-solid fa-right-from-bracket"></i><p>Log Out</p></li></a>
+                {% else %}
+                    <a href="{% url 'myapp:log_in' %}"><li><i class="fa-solid fa-arrow-right-to-bracket"></i><p>Log In</p></li></a>
+                    <a href="{% url 'myapp:register' %}"><li><i class="fa-solid fa-user-plus"></i><p>Sign Up</p></li></a>
+                {% endif %}
+                
+            </ul>
+            <a href="#">
+                <div class="end">
+                    <i class="fas fa-cogs"></i>
+                    <p style="margin-left: 16px"><a href="{% url 'myapp:reference' %}" style="color: #202020;">References</a></p>
+                </div>
+            </a>
+        </nav>
+        <div class="main-part">
+            <div class="right">
+                <div class="change">
+                    {% for message in messages%}
+                        <div class="alert alert-{{message.tags}}">
+                            {{message}}
+                        </div>
+                    {% endfor %}
+                    {% block content %}
+                    {% endblock content%}
+                </div>
+                <div class="attendance"> 
+                    <h2> Attendance </h2>
+                    <ul>
+                        {% for student in students %}
+                        <li><span>{{student.id}}</span>{{student.name}} {{student.surname}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="about_us">
+                    <h4 class="text-center"> About Us </h4>
+                    <p> <i class="fa-solid fa-address-card"></i> We are students at Baku Higher Oil School, 
+                        studying discipline of Process Automation Engineering.
+                </div>
+                <div class="contact_us">
+                    <h4 class="text-center"> Contact </h4>
+                    <p> <i class="fa-solid fa-envelope" style="margin-right: 10px;"></i>bahruz.huseynov.std@bhos.edu.az </p>
+                    <p> <i class="fa-solid fa-envelope" style="margin-right: 10px;"></i>asgar.naghili.std@bhos.edu.az </p>
+                    <p> <i class="fa-solid fa-phone" style="margin-right: 10px;"></i> +99450 854 40 02 </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

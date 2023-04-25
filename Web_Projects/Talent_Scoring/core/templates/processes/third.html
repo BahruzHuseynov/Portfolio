@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+ <main>
+            <!------------------------------------ Start Step-one section --------------------------------------->
+            <section class="contact steps step-three pt-200 pb-100">
+                <div class="heading-steps">
+                    <h1 class="title">{{ stage.stage_name }}</h1>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12-lg-12">
+                            <div class="form-wrapper">
+                                <div class="steps-form-wrapper">
+                                    <form action="" method="POST">
+                                        {% csrf_token %}
+                                         {% for question in questions %}
+                                             <label for="">{{ question.question_title }}</label>
+                                             {% if question.question_title == "Hansı fənn üzrə olimipiyada qalibi olmusunuz?" %}
+                                             <input type="text" name="lesson_name" class="input disabled-input" >
+
+                                             {% else %}
+                                        <select id="data_{{ question.id }}" class="steps-input" name="question-{{ question.order_by }}">
+                                            {% for answer in question.question.all %}
+                                                <option value="{{ answer.id }}">{{ answer.answer_title }}</option>
+                                            {% endfor %}
+                                        </select>
+
+                                             {% endif %}
+                                        {% endfor %}
+                                        <button class="steps-btn btn--secondary">Hesabla</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    </main>
+{% endblock %}

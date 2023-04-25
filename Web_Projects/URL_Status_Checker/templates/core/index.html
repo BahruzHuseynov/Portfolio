@@ -1,0 +1,62 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <h1>Welcome to the URL Status Checker!</h1>
+    <br>
+    <h4>Here are your urls to check!</h4>
+    <ul>
+    {% for url in user_urls %}
+        <li>
+            <p>{{ url.url }}</p>
+        </li>
+    {% endfor %}
+    </ul>
+    <hr>
+    <label for="id_url">Set the checking interval (sec)</label>
+    <input type="number" min=3 name="timeout" id="id_timeout" value="3">
+    <button type="submit" class="btn btn-primary" id="submit-form">Check Statuses URLs</button>
+    <hr>
+    <div id="status_codes"></div>
+{% endblock %}
+
+{% block js %}
+
+    <script>
+        let timeout = $('#id_timeout').val();
+        $("#submit-form").on('click', function(e){
+            if (parseInt(timeout) < 3) {
+                alert("The minimum checking interval should be 3 seconds!");
+            } else {
+                e.preventDefault();
+                $.ajax({
+                    url: "{% url 'core:check_urls_status' %}",
+                    type: "POST",
+                    data: {
+                        timeout: timeout !== '' ? timeout : 3,
+                        urls: '{{ urls_to_be_checked|safe }}',
+                        csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val()
+                    },
+                    success: function(data){
+                        if (data['status'] === 'ok') {
+                            let html = '<ul>';
+
+                            // Loop through each url response and color them according to their status code
+                            for (let i = 0; i < data['response'].length; i++) {
+                                if (data['response'][i][1] !== 200) {
+                                    html += '<li style="color: red">' + data['response'][i][0] + ', Status Code -- ' + data['response'][i][1] + '</li>';
+                                } else {
+                                    html += '<li style="color: green">' + data['response'][i][0] + ', Status Code -- ' + data['response'][i][1] + '</li>';
+                                }
+                            }
+                            html += '</ul>';
+
+                            $("#status_codes").html(html);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+{% endblock %}

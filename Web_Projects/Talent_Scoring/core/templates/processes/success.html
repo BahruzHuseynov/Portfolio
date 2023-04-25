@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+    <main>
+            <!------------------------------------ Start Step-one section --------------------------------------->
+            <section class="steps step-four pt-200 pb-100">
+
+                <div class="container">
+                    <div class="form-wrapper">
+                        <h1 class="text-area">
+                            Hörmətli <span class="name">{{ request.user.fullname }}</span>,
+                            Siz öz yaşıdlarınız arasında ən yaxşı <span class="percent">{{ request.user.total_score }}</span>%-lik qrupdasınız.
+                            Sizi təbrik edirik!
+                        </h1>
+                        <div class="star-area">
+                            <img src="{% static 'client/assets/images/star.png' %}" alt="">
+                            <img src="{% static 'client/assets/images/star.png' %}" alt="">
+                            <img src="{% static 'client/assets/images/star.png' %}" alt="">
+                            <img src="{% static 'client/assets/images/star.png' %}" alt="">
+                            <img src="{% static 'client/assets/images/star.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+{% endblock %}
