@@ -19,32 +19,6 @@
 
 ---
 
-
-
-<div style="margin-top:10px" align="center">
-  <div>
-    <a  href="https://www.linkedin.com/in/bahruzhuseynov/" target="_blank">
-    <img src="https://img.shields.io/badge/Linked%20In-0A66C2.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="example"/>
-    </a>
-    <a  href="https://www.facebook.com/bahruz.huseynov.397" target="_blank">
-      <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" alt="example"/>
-    </a>
-    <a href="https://twitter.com/H_Bahruz" target="_blank">
-      <img src="https://img.shields.io/badge/Twitter-1DA1F2.svg?style=for-the-badge&logo=twitter&logoColor=white" alt="example"/>
-    </a>
-  </div>
-  <div>
-    <a  href="" target="_blank">
-    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="example"/>
-    </a>
-    <a  href="" target="_blank">
-      <img src="https://img.shields.io/badge/Microsoft_Outlook-0078D4?style=for-the-badge&logo=microsoft-outlook&logoColor=white" alt="example"/>
-    </a>
-  </div>
-</div>
-
----
-
 <h3 align="center"> Technologies </h3>
 <div style="margin-top:10px" align="center">
     <div>
@@ -68,9 +42,7 @@
         <img src="https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white" alt="example"/>
     </div>
 </div>
-
 ---
-
 <h3 align="center"> Tools (Editor, Version Control) </h3>
 <div style="margin-top:10px" align="center">
     <div>
@@ -79,16 +51,9 @@
         <img src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white" alt="example"/>
         <img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="example"/>
         <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="example"/>
-
-    </div>
-    <div>
-
     </div>
 </div>
-
 ---
-
-
 <h3 align="center"> Contact </h3>
 <div style="margin-top:10px" align="center">
     <div>
