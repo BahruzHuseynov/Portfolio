@@ -1,11 +1,11 @@
-<h1 align="center"><b>Hi , I'm Bahruz Huseynov </b><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35"></h1>
+<h1 align="center" id="top-part"><b>Hi , I'm Bahruz Huseynov </b><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35"></h1>
 
-<h3 font-size="20" align="center" id="top-part"> Artificial Intelligence Engineer | Web Enthusiast (Django) </h3>
+<h3 font-size="20" align="center"> Artificial Intelligence Engineer | Web Enthusiast (Django) </h3>
 
 
 -  👨‍💻 All of my projects are available [@Elanza-48](github.com/Elanza-48)
 
-<img align="right" style="width:350px; height:auto" src="https://camo.githubusercontent.com/a4c584bce1c41271485d28f92aaf9f581b3c88b68ca723b6edfd58b4ba988c2b/68747470733a2f2f63646e2e6472696262626c652e636f6d2f75736572732f313138373833362f73637265656e73686f74732f363533393432392f70726f6772616d65722e676966"/>
+<img align="right" style="width:14rem; height:auto" src="https://camo.githubusercontent.com/a4c584bce1c41271485d28f92aaf9f581b3c88b68ca723b6edfd58b4ba988c2b/68747470733a2f2f63646e2e6472696262626c652e636f6d2f75736572732f313138373833362f73637265656e73686f74732f363533393432392f70726f6772616d65722e676966"/>
 
 - 👯 I’m looking to collaborate on **Spring Framework**
 
