@@ -7,13 +7,13 @@
 
     - 👨‍💻 Currently work on the graduation work
 
-    - 👯 I nowadays focused on various courses taken from **Coursera platform**
+    - 👯 I nowadays focused on various courses taken from <b> Coursera platform </b>.
 
-    - 🤝 I’m always open to **new job opportunities**
+    - 🤝 I’m always open to <b> new job opportunities </b>
 
-    - 💬 Ask me about **Python😆**
+    - 💬 Ask me about <b> Python😆 </b>
 
-    - ⚡ Fun fact **Coding is a passion and not profession.**
+    - ⚡ Fun fact <b> Coding is a passion and not profession </b>.
 </div>
 
 ---
