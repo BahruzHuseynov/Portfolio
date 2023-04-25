@@ -14,6 +14,8 @@
 
 - ⚡ Fun fact **Coding is a passion and not profession.**
 
+<br> <br> <br>
+
 ---
 
 <h3 align="center"> Technologies (Programming languages, Libraries, Version controls, DBMS) </h3>
