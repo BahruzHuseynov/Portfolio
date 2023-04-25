@@ -13,7 +13,7 @@
 
     - 💬 Ask me about Python😆.
 
-    - ⚡ Fun fact Coding is a passion and not profession.
+    - ⚡ Fun fact "Coding is a passion and not profession".
 </div>
 
 ---
