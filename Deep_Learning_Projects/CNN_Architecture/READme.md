@@ -2,7 +2,7 @@
     <h1>Various CNN Architectures</h1>
 </div>
 
-This repository contains datasets for training and evaluating Convolutional Neural Network (CNN) models, as well as implementations of various CNN architectures including LeNet, AlexNet, VGGNet, ResNet, and more.
+In this part, various Convolutional Neural Network (CNN) models have been typed from scratch in PyTorch and TensorFlow and some RGB and gray-scaled image datasets have been used in order to test the architectures with training and evaluating.
 
 ## Datasets
 
