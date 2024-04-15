@@ -2,7 +2,7 @@
     <h1>Various CNN Architectures</h1>
 </div>
 
-In this part, various Convolutional Neural Network (CNN) models have been typed from scratch in PyTorch and TensorFlow and some RGB and gray-scaled image datasets have been used in order to test the architectures with training and evaluating.
+In this part, various Convolutional Neural Network (CNN) models have been typed from scratch in PyTorch and TensorFlow together wiht their application on RGB and gray-scaled image datasets in order to train and test the models with performance metrics.
 
 ## Datasets
 
