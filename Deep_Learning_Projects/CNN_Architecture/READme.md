@@ -1,4 +1,4 @@
-# CNN Dataset and Architectures Repository
+# Various CNN Architecture 
 
 This repository contains datasets for training and evaluating Convolutional Neural Network (CNN) models, as well as implementations of various CNN architectures including LeNet, AlexNet, VGGNet, ResNet, and more.
 
