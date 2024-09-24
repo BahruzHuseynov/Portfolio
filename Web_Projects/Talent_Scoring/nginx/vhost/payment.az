@@ -1,0 +1,7 @@
+location /static {
+    alias   /azkommunal_backend/static/;
+}
+
+location /media {
+    alias   /azkommunal_backend/media/;
+}

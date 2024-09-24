@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+ <main>
+            <!------------------------------------ Start Introductions Banner section --------------------------------------->
+            <section class="contact pt-200 pb-100">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12-lg-12">
+                            <div class="form-wrapper">
+                                <h1 class="contact-title">Contact</h1>
+                                <div class="contact-form-wrapper">
+                                    <form action="{% url 'core:contact_page' %}" method="POST">
+                                        {% csrf_token %}
+                                        <label for="">Full Name</label>
+                                        {% render_field form.fullname class="input" %}
+                                        <label for="">Phone Number</label>
+                                        {% render_field form.phone_number class="input" %}
+                                        <label for="">Email</label>
+                                        {% render_field form.email_data class="input" %}
+                                        <label for="">Subject</label>
+                                        {% render_field form.text  class="textarea" %}
+                                        <button class="contact-btn btn--secondary">Send</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+# This is a sample build configuration for Python.
+# Check our guides at https://confluence.atlassian.com/x/x4UWN for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom  docker image from Docker Hub as your build environment.
+image: python:3.9
+
+pipelines:
+  branches:
+    staging:
+      - step:
+          name: Deploy to staging
+          deployment: staging
+          script: # staging deployment
+            # - ssh -tt $USER@$STG_HOST 'cd '$STG_APP_PATH' && git fetch origin && git reset --hard origin/staging && echo ENVIRONMENT='$ENVIRONMENT' >> .env && docker-compose up --build -d  && docker exec -it beepex sh -c "/venv/bin/python manage.py makemigrations --merge --noinput && /venv/bin/python manage.py migrate --noinput"'
+            - ssh -tt $USER@$STG_HOST 'cd '$STG_APP_PATH'
+            - git fetch origin && git reset --hard origin/staging
+            # - echo ENVIRONMENT='$ENVIRONMENT' >> .env
+            - docker-compose up --build -d
+            - docker exec -it payment.az sh -c "mkdir locale"
+            - docker exec -it payment.az sh -c "/venv/bin/python manage.py makemessages -a && /venv/bin/python manage.py compilemessages"
+            - docker exec -it payment.az sh -c "/venv/bin/python manage.py makemigrations --merge --noinput && /venv/bin/python manage.py migrate --noinput"'
+
+#    master: # production
+#      - step:
+#          name: Deploy to Production
+#          deployment: production
+#          script: # production deployment
+#            - ssh -tt $USER_PROD@$HOST 'cd '$APP_PATH'
+#            - git fetch origin && git reset --hard origin/master
+#            - docker-compose up --build -d
+#            - docker exec -it cargodiem sh -c "/venv/bin/python manage.py makemessages"
+#            - docker exec -it cargodiem sh -c "/venv/bin/python manage.py makemigrations --merge --noinput && /venv/bin/python manage.py migrate --noinput"'
+#
+#      # - step:
+#      #     name: Purge cache
+#      #     script:
+#      #       - bash _k8s/scripts/cloudflare.sh

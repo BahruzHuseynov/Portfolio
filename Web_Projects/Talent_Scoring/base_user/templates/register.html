@@ -1,0 +1,60 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <main>
+            <!------------------------------------ Start Introductions Banner section --------------------------------------->
+            <section class="login register pt-200 pb-100">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-7">
+                            <div class="login-left">
+                                <img src="{% static 'client/assets/images/login-register-image.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-5">
+                            <div class="form-wrapper">
+                                <h1 class="login-title register-title">Sign up</h1>
+                                <form class="login-form register-form" action="{% url 'account:register' %}"  method="POST">
+                                    {% csrf_token %}
+                                    <div class="email-input-wrapper">
+                                        <label for="">Full Name</label>
+                                        {% render_field form.fullname  class="input" placeholder="First name Last name"%}
+                                    </div>
+                                    <div class="email-input-wrapper">
+                                        <label for="">Email</label>
+                                        {% render_field form.email  class="input" placeholder="username@gmail.com" %}
+                                    </div>
+                                    <div class="password-input-wrapper">
+                                        <label for="">Password</label>
+                                        <div class="passinput-wrapper">
+                                            {% render_field form.password class="input"  placeholder="***********" %}
+                                            <span class="eye" id="eye">
+                                                <img src="{% static 'client/assets/icons/eye.png' %}" alt="" id="eyeImage">
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="password-input-wrapper repeat-password">
+                                        <label for="">Repeat password</label>
+                                        <div class="passinput-wrapper">
+                                            {% render_field form.password_confirm class="input"  placeholder="***********" %}
+                                            <span class="eye" id="eye">
+                                                <img src="{% static 'client/assets/icons/eye.png' %}" alt="" id="eyeImage">
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="save-gorget-wrapper register-notification">
+                                        <input type="checkbox"> <p>Qeydiyyatdan keçməklə
+                                            <a href="">Qaydalar və Məxfilik</a> şərtlərini qəbul edirəm.
+                                        </p>
+                                    </div>
+                                    <button type="submit" class="login-btn btn--secondary">Register</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+{% endblock %}

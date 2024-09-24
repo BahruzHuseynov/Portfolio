@@ -1,0 +1,37 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+ <main>
+            <!------------------------------------ Start Introductions Banner section --------------------------------------->
+            <section class="banner about pt-200 pb-100">
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <div class="col-lg-7 col-md-8 col-sm-12 ">
+                            <div class="banner-left">
+                                <h1 class="banner-title">{{ about_data.title }}</h1>
+                                <h1 class="banner-sub-title">{{ about_data.description }}</h1>
+                                <div class="content">
+                                    <p class="banner-text">
+                                        {{ about_data.text }}
+                                    </p>
+                                </div>
+                                 {% if request.user.is_authenticated %}
+                                <a class="banner-btn btn--primary" href="{% url 'core:stage_one_page' %}">Get started</a>
+                                    {% else %}
+
+                                 {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-4 col-sm-12">
+                            <div class="banner-right">
+                                <img src="{% static 'client/assets/images/about.png' %}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+{% endblock %}

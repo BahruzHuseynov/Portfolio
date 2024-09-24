@@ -1,0 +1,51 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+  <main>
+            <!------------------------------------ Start Introductions Banner section --------------------------------------->
+            <section class="login pt-200 pb-100">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-7">
+                            <div class="login-left">
+                                <img src="{% static 'client/assets/images/login-register-image.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-5">
+                            <div class="form-wrapper">
+                                <h1 class="login-title">Login</h1>
+                                <form class="login-form" action="{% url 'account:login' %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="email-input-wrapper">
+                                        <label for="">Email</label>
+                                        {% render_field form.username class="input" placeholder="username@gmail.com" %}
+                                    </div>
+                                    <div class="password-input-wrapper">
+                                        <label for="">Password</label>
+                                        <div class="passinput-wrapper">
+                                            {% render_field form.password class="input" placeholder="***********" %}
+
+                                            <span class="eye" id="eye">
+                                                <img src="{% static 'client/assets/icons/eye.png' %}" alt="" id="eyeImage">
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="save-gorget-wrapper">
+                                        <div class="input-save-wrapper">
+                                            <input type="checkbox" class="input-checkbox">
+                                            <span>Məni yadda saxla</span>
+                                        </div>
+                                        <a href="#" class="forge-question">Şifrəni unutdun?</a>
+                                    </div>
+                                    <button type="submit" class="login-btn btn--secondary">Login</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+{% endblock %}

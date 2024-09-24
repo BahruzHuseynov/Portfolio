@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block head-title %}
+    <title>Profile</title>
+{% endblock %}
+{% block content %}
+    <div class="profile-management">
+        <div class="profile-picture">
+            <img style="width: 100%" src="{{ user.userinfo.head_image.url }}">
+        </div>
+        <div class="profile-info">
+            <h2 class="account-heading text-center">Username {{ user.username }}</h2><hr>
+            <p class="account-heading"> Full name: {{user.first_name}} {{user.last_name}}</p><hr>
+            <p class="account-heading"> Email: {{ user.email }}</p><hr>
+            <a href="{% url 'myapp:snapshot' %}" class="btn btn-outline-primary btn-block text-center"> Change Profile Picture </a>
+            <hr>
+            <form action="{% url 'myapp:profile' user.id %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form|crispy}}
+                <button type="submit" class="btn btn-outline-primary btn-block text-center"> 
+                    Upload New Profile Picture 
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

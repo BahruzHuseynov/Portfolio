@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+
+  postgres:
+    container_name:  postgres-db
+    image:           postgres:14
+    ports:
+      - '5432:5432' # Bind host port 5432 to PostgreSQL port 5432
+    volumes:
+      - ../pgdb:/var/lib/postgresql/data
+    env_file: ./.env
+    environment:
+      - LC_ALL=C.UTF-8
+
+  redis:
+    image: redis
+    ports:
+      - '127.0.0.1:6379:6379'
+    restart: always
+  
+
+# celery run commando
+# celery -A azkommunal_backend worker -l info
+
+      
