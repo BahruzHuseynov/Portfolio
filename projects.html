@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Bahruz Huseynov</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand text-uppercase fw-bold" href="main.html">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav w-100">
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase fw-bold" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase fw-bold" href="education.html">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase fw-bold" href="certificates.html">Certificates</a>
+                    </li>
+                </ul>
+            </div>
+        
+            <div class="dropdown d-none d-lg-block">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Filter Projects
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="filterDropdown">
+                    <li><a class="dropdown-item" href="#" onclick="filterProjects('all')">All projects</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterProjects('recommendation-system')">Recommendation System</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterProjects('object-detection')">Object Detection</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterProjects('object-tracking')">Object Tracking</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="filter-row my-3 d-block d-lg-none">
+            <div class="dropdown text-center">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="mobileFilterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Filter Projects
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="mobileFilterDropdown">
+                    <li><a class="dropdown-item" href="#" onclick="filterProjects('all')">All projects</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterProjects('recommendation-system')">Recommendation System</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterProjects('object-detection')">Object Detection</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterProjects('object-tracking')">Object Tracking</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="object-detection object-tracking">
+            <div class="media-container">
+                <img src="project_graphics/elte_ai_lab_project_image.jpg" alt="Project Image">
+            </div>
+            <div class="project-details">
+                <div class="project-title">
+                    <p>2D Lego Tracking and Counting</p>
+                    <div class="icon-container">
+                        <a href="https://github.com/BahruzHuseynov/Object-Tracking-AI_Lab" target="_blank"><i class="fa-brands fa-github fa-2x hover-icon"></i></a>
+                        <a href="https://drive.google.com/drive/folders/1BtncxKLn97y3-L2wcXft52zz3Ut1DKeu?usp=sharing" target="_blank"><i class="fa-solid fa-circle-play fa-2x hover-icon"></i></a>
+                    </div>
+                </div>
+                
+                <div class="project-description">
+                    This project combines object detection and tracking capabilities using advanced AI algorithms.
+                    This project combines object detection and tracking capabilities using advanced AI algorithms.
+                    This project combines object detection and tracking capabilities using advanced AI algorithms.
+                    This project combines object detection and tracking capabilities using advanced AI algorithms.
+                </div>
+                <div class="project-technologies">
+                    <span class="badge bg-secondary">Python</span>
+                    <span class="badge bg-secondary">TensorFlow</span>
+                    <span class="badge bg-secondary">OpenCV</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="recommendation-system">
+            <div class="media-container">
+                <img src="project_graphics/balanced_diet_tracker.jpg" alt="Project Image">
+            </div>
+            <div class="project-details">
+                <div class="project-title">
+                    <p>Balanced Diet Tracker</p>
+                    <div class="icon-container">
+                        <a href="https://www.loom.com/share/29b91ff27f814490873e95f6015fef7d" target="_blank"><i class="fa-solid fa-circle-play fa-2x hover-icon"></i></a>
+                    </div>
+                </div>
+                <div class="project-description">
+                    This project combines object detection and tracking capabilities using advanced AI algorithms.
+                    This project combines object detection and tracking capabilities using advanced AI algorithms.
+                </div>
+                <div class="project-technologies">
+                    <span class="badge bg-secondary">Python</span>
+                    <span class="badge bg-secondary">Scikit-learn</span>
+                    <span class="badge bg-secondary">OpenCV</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/projects.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
